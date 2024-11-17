@@ -1,9 +1,16 @@
 #!/bin/bash
 
-check_sudo() {
-    if [ "$EUID" -ne 0 ]; then 
-        echo "This script requires sudo privileges to uninstall Git."
-        echo "Please run with sudo."
+check_root() {
+    if [ -n "$TERMUX_VERSION" ]; then
+        return 0
+    fi
+    
+    if [ "$PACKAGE_MANAGER" = "brew" ]; then
+        return 0
+    fi
+    
+    if [ "$(id -u)" != "0" ]; then
+        echo "Error: This script must be run as root for $PACKAGE_MANAGER operations"
         exit 1
     fi
 }
