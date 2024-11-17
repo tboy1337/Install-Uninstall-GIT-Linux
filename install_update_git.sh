@@ -3,7 +3,15 @@
 set -e
 
 check_root() {
-    if [ "$(id -u)" != "0" ] && [ "$PACKAGE_MANAGER" != "brew" ]; then
+    if [ -n "$TERMUX_VERSION" ]; then
+        return 0
+    fi
+    
+    if [ "$PACKAGE_MANAGER" = "brew" ]; then
+        return 0
+    fi
+    
+    if [ "$(id -u)" != "0" ]; then
         echo "Error: This script must be run as root for $PACKAGE_MANAGER operations"
         exit 1
     fi
