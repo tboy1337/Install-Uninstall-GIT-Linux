@@ -92,13 +92,11 @@ install_update_git() {
                 apt-get update || exit_code=$?
                 [ $exit_code -eq 0 ] && apt-get upgrade -y git || exit_code=$?
                 [ $exit_code -eq 0 ] && apt-get clean || exit_code=$?
-                [ $exit_code -eq 0 ] && rm -rf /var/lib/apt/lists/* || exit_code=$?
                 ;;
             "yum")
                 yum update -y || exit_code=$?
                 [ $exit_code -eq 0 ] && yum upgrade -y git || exit_code=$?
                 [ $exit_code -eq 0 ] && yum clean all || exit_code=$?
-                [ $exit_code -eq 0 ] && rm -rf /var/cache/yum || exit_code=$?
                 ;;
             "dnf")
                 dnf check-update || [ $? -eq 100 ] || exit_code=$?
@@ -135,13 +133,11 @@ install_update_git() {
                 apt-get update || exit_code=$?
                 [ $exit_code -eq 0 ] && apt-get install -y git || exit_code=$?
                 [ $exit_code -eq 0 ] && apt-get clean || exit_code=$?
-                [ $exit_code -eq 0 ] && rm -rf /var/lib/apt/lists/* || exit_code=$?
                 ;;
             "yum")
                 yum update -y || exit_code=$?
                 [ $exit_code -eq 0 ] && yum install -y git || exit_code=$?
                 [ $exit_code -eq 0 ] && yum clean all || exit_code=$?
-                [ $exit_code -eq 0 ] && rm -rf /var/cache/yum || exit_code=$?
                 ;;
             "dnf")
                 dnf check-update || [ $? -eq 100 ] || exit_code=$?
