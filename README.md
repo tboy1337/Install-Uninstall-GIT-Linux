@@ -48,7 +48,7 @@ This will:
 - These scripts require sudo; use with caution.
 
 ## 📄 License
-This project is licensed under the terms of the LICENSE.txt file included in the repository. See [LICENSE.txt](LICENSE.txt) for details.
+This project is licensed under the terms of the LICENSE.md file included in the repository. See [LICENSE.md](LICENSE.md) for details.
 
 ## 🤝 Contributing
 Feel free to fork, submit issues, or pull requests! Let's make Git management even easier.
